@@ -6,11 +6,13 @@ if (!user) {
   console.error("Hanya untuk dosen");
   window.location.href = "login.html";
 }
+const urlParamspra = new URLSearchParams(window.location.search);
+const selectedNPMpra = urlParamspra.get("NPM");
 
 document.addEventListener("DOMContentLoaded", async () => {
-  if (!selectedNPM) {
-    alert("Data tidak ditemukan!");
-    window.location.href = `mahasiswa.html?NPM=${selectedNPM}`; // Redirect if no NPM
+  if (!selectedNPMpra) {
+    console.log("Data tidak ditemukan!");
+    window.location.href = `mahasiswa.html?NPM=${selectedNPMpra}`; // Redirect if no NPM
     return;
   }
 
@@ -22,106 +24,106 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Fetch Mahasiswa Data
     const mahasiswaResponse = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Praproposal");
     const mahasiswaData = await mahasiswaResponse.json();
-    const editData = mahasiswaData.find((item) => item.NPM === selectedNPM);
+    const editData = mahasiswaData.find((item) => item.NPM === selectedNPMpra);
 
     if (!editData) {
-      alert("Data tidak ditemukan!");
-      window.location.href = `mahasiswa.html?NPM=${selectedNPM}`;
+      console.log("Data tidak ditemukan!");
+      // window.location.href = `mahasiswa.html?NPM=${selectedNPMpra}`;
       return;
-    }
+    } else {
+      // Prefill the form with editData
+      document.getElementById("edit-tanggal").value = editData.Tanggal;
+      document.getElementById("edit-npm").value = editData.NPM;
+      document.getElementById("edit-nama").value = editData.Nama;
+      document.getElementById("edit-judul").value = editData.Judul;
+      document.getElementById("edit-status").value = editData.Status;
 
-    // Prefill the form with editData
-    document.getElementById("edit-tanggal").value = editData.Tanggal;
-    document.getElementById("edit-npm").value = editData.NPM;
-    document.getElementById("edit-nama").value = editData.Nama;
-    document.getElementById("edit-judul").value = editData.Judul;
-    document.getElementById("edit-status").value = editData.Status;
+      // Fetch Dosen Data
+      const dosenResponse = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
+      const dosenData = await dosenResponse.json();
 
-    // Fetch Dosen Data
-    const dosenResponse = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
-    const dosenData = await dosenResponse.json();
+      const validFungsional = ["Lektor", "Lektor Kepala", "Asisten Ahli"];
 
-    const validFungsional = ["Lektor", "Lektor Kepala", "Asisten Ahli"];
-
-    // Populate Bidang Dropdown
-    const bidangOptions = [...new Set(dosenData.map((d) => d.Bidang))];
-    bidangOptions.forEach((bidang) => {
-      const option = document.createElement("option");
-      option.value = bidang;
-      option.textContent = bidang;
-      bidangElement.appendChild(option);
-    });
-
-    bidangElement.value = editData.Bidang;
-
-    // Initialize Dropdowns
-    initializeDropdowns();
-
-    bidangElement.addEventListener("change", initializeDropdowns);
-
-    function initializeDropdowns() {
-      const selectedBidang = bidangElement.value;
-
-      if (!selectedBidang) {
-        console.warn("Bidang is not selected.");
-        return;
-      }
-
-      const filteredDosen = dosenData.filter((d) => d.Bidang === selectedBidang && validFungsional.includes(d.Fungsional));
-
-      populateDropdown(dosbing1Dropdown, filteredDosen, editData.Pembimbing_1);
-
-      updateDosbing2Dropdown(filteredDosen);
-    }
-
-    function populateDropdown(dropdown, dosenList, selectedValue) {
-      dropdown.innerHTML = '<option value="" disabled>Pilih Dosen</option>';
-      dosenList.forEach((d) => {
+      // Populate Bidang Dropdown
+      const bidangOptions = [...new Set(dosenData.map((d) => d.Bidang))];
+      bidangOptions.forEach((bidang) => {
         const option = document.createElement("option");
-        option.value = d.Nama;
-        option.textContent = `${d.Nama} (${d.Fungsional})`;
-        option.selected = d.Nama === selectedValue;
-        dropdown.appendChild(option);
+        option.value = bidang;
+        option.textContent = bidang;
+        bidangElement.appendChild(option);
       });
-      dropdown.disabled = dosenList.length === 0;
-    }
 
-    function updateDosbing2Dropdown(dosenList) {
-      const selectedDosen1 = dosbing1Dropdown.value; // Get the selected dosbing1 value
-      const filteredDosen = dosenList.filter((d) => d.Nama !== selectedDosen1); // Exclude dosbing1 selection
-      populateDropdown(dosbing2Dropdown, filteredDosen, editData.Pembimbing_2, "Tanpa Dosen Pembimbing 2");
-    }
+      bidangElement.value = editData.Bidang;
 
-    function populateDropdown(dropdown, dosenList, selectedValue = "", placeholder = "Pilih Dosen") {
-      dropdown.innerHTML = ""; // Clear all existing options
+      // Initialize Dropdowns
+      initializeDropdowns();
 
-      // Add placeholder as the first option
-      const placeholderOption = document.createElement("option");
-      placeholderOption.value = "";
-      // placeholderOption.disabled = true;
-      placeholderOption.selected = true; // Ensure the placeholder is selected by default
-      placeholderOption.textContent = placeholder;
-      dropdown.appendChild(placeholderOption);
+      bidangElement.addEventListener("change", initializeDropdowns);
 
-      dosenList.forEach((d) => {
-        const option = document.createElement("option");
-        option.value = d.Nama;
-        option.textContent = `${d.Nama} (${d.Fungsional})`;
+      function initializeDropdowns() {
+        const selectedBidang = bidangElement.value;
 
-        // Mark the option as selected if it matches the value
-        if (d.Nama === selectedValue) {
-          option.selected = true;
+        if (!selectedBidang) {
+          console.warn("Bidang is not selected.");
+          return;
         }
 
-        dropdown.appendChild(option);
+        const filteredDosen = dosenData.filter((d) => d.Bidang === selectedBidang && validFungsional.includes(d.Fungsional));
+
+        populateDropdown(dosbing1Dropdown, filteredDosen, editData.Pembimbing_1);
+
+        updateDosbing2Dropdown(filteredDosen);
+      }
+
+      function populateDropdown(dropdown, dosenList, selectedValue) {
+        dropdown.innerHTML = '<option value="" disabled>Pilih Dosen</option>';
+        dosenList.forEach((d) => {
+          const option = document.createElement("option");
+          option.value = d.Nama;
+          option.textContent = `${d.Nama} (${d.Fungsional})`;
+          option.selected = d.Nama === selectedValue;
+          dropdown.appendChild(option);
+        });
+        dropdown.disabled = dosenList.length === 0;
+      }
+
+      function updateDosbing2Dropdown(dosenList) {
+        const selectedDosen1 = dosbing1Dropdown.value; // Get the selected dosbing1 value
+        const filteredDosen = dosenList.filter((d) => d.Nama !== selectedDosen1); // Exclude dosbing1 selection
+        populateDropdown(dosbing2Dropdown, filteredDosen, editData.Pembimbing_2, "Tanpa Dosen Pembimbing 2");
+      }
+
+      function populateDropdown(dropdown, dosenList, selectedValue = "", placeholder = "Pilih Dosen") {
+        dropdown.innerHTML = ""; // Clear all existing options
+
+        // Add placeholder as the first option
+        const placeholderOption = document.createElement("option");
+        placeholderOption.value = "";
+        // placeholderOption.disabled = true;
+        placeholderOption.selected = true; // Ensure the placeholder is selected by default
+        placeholderOption.textContent = placeholder;
+        dropdown.appendChild(placeholderOption);
+
+        dosenList.forEach((d) => {
+          const option = document.createElement("option");
+          option.value = d.Nama;
+          option.textContent = `${d.Nama} (${d.Fungsional})`;
+
+          // Mark the option as selected if it matches the value
+          if (d.Nama === selectedValue) {
+            option.selected = true;
+          }
+
+          dropdown.appendChild(option);
+        });
+
+        dropdown.disabled = dosenList.length === 0; // Disable dropdown if no options are available
+      }
+
+      dosbing1Dropdown.addEventListener("change", () => {
+        updateDosbing2Dropdown(dosenData.filter((d) => d.Bidang === bidangElement.value));
       });
-
-      dropdown.disabled = dosenList.length === 0; // Disable dropdown if no options are available
     }
-
-    dosbing1Dropdown.addEventListener("change", () => {
-      updateDosbing2Dropdown(dosenData.filter((d) => d.Bidang === bidangElement.value));
-    });
   } catch (error) {
     console.error("Error:", error);
     showToast("Gagal memuat data.", "error");
@@ -175,7 +177,7 @@ function showToast(message, type, redirect = false) {
   // Redirect to login.html page on success if 'redirect' is true
   if (redirect) {
     setTimeout(() => {
-      window.location.href = `mahasiswa.html?NPM=${selectedNPM}`; // Redirect to profile.html
+      window.location.href = `mahasiswa.html?NPM=${selectedNPMpra}`; // Redirect to profile.html
     }, 2000); // Adjust delay if necessary
   }
 }

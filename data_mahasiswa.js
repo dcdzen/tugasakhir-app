@@ -55,7 +55,6 @@ function renderTable(data) {
       <td class="align-content-center" style="white-space: nowrap">${item.Pembimbing_2}</td>
       <td class="text-center d-flex justify-content-between gap-2">
         <button class="btn btn-primary fw-bold" onclick="selectedMahasiswa(${index})">Periksa</button>
-        <button class="btn btn-primary fw-bold" onclick="showEditPage(${index})">Edit</button>
         <button type="button" class="btn btn-danger fw-bold" data-bs-toggle="modal" data-bs-target="#delete-popup" onclick="deletePopup('${item.NPM}', ${index})">Hapus</button>
       </td>
     `;
@@ -96,13 +95,6 @@ function filterTable() {
 
 document.getElementById("filter-bidang").addEventListener("change", filterTable);
 document.getElementById("filter-dosen").addEventListener("change", filterTable);
-
-function showEditPage(index) {
-  const editData = allData[index];
-  const editUrl = `edit_data.html?NPM=${encodeURIComponent(editData.NPM)}`;
-  window.location.href = editUrl;
-  // console.log("Redirecting to:", editUrl);
-}
 
 function selectedMahasiswa(index) {
   const selectedData = allData[index];
