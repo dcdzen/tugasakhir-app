@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Profil Pengguna</title>
+  </head>
+  <body class="bg-light">
+    <!-- navbar start -->
+    <div id="navbar"></div>
+    <!-- navbar end -->
+
+    <!-- profile -->
+    <section class="p-3 container">
+      <div class="my-auto">
+        <div class="bg-white border-light-subtle shadow p-3 gap-3 rounded-3">
+          <div class="d-flex justify-content-between">
+            <h2 class="text-center">Profil Mahasiswa</h2>
+            <button id="logout-button" class="btn btn-danger fw-bold">Logout</button>
+          </div>
+          <hr />
+          <div class="overflow-x-auto py-2 w-100">
+            <div class="mb-3">
+              <p class="fw-bold mb-0">NPM</p>
+              <span id="profile-npm"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Password</p>
+              <span id="profile-password"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Nama</p>
+              <span id="profile-nama"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Email</p>
+              <span id="profile-email"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Telepon</p>
+              <span id="profile-telepon"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Tanggal Pembuatan Akun</p>
+              <span id="profile-tanggal-akun"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Folder Drive Utama</p>
+              <button type="button" id="btn-drive" class="btn btn-success fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal2">Buat Folder Drive</button>
+              <button type="button" id="btn-link" class="btn btn-dark fw-bold"><a id="profile-drive"></a></button>
+            </div>
+            <div class="alert alert-info mb-0" role="alert">
+              <span>Jangan menghapus folder drive yang telah disediakan</span>
+            </div>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Profile</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- profile -->
+
+    <!-- data skripsi -->
+    <div class="accordion container p-3" id="accordionExample">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Data Skripsi (Pra Proposal)</button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pengajuan Pra Proposal</p>
+                <span id="pra-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="pra-bidang"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="pra-judul"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Pembimbing</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="pra-dosbing1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="pra-dosbing2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Folder Drive Pra Proposal</p>
+                <button type="button" id="btn-link-pra" class="btn btn-dark fw-bold mb-3"><a id="drive-pra"></a></button>
+                <div class="alert alert-info" role="alert">
+                  <span>Unggah dokumen persyaratan sebelum mengajukan</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Status</p>
+                <button id="pra-status" class="btn" disabled></button>
+              </div>
+              <div class="alert alert-info mb-0" role="alert">
+                <span>Jika status "Diterima", silahkan cek Form Lab Dosen di Halaman Menu</span>
+              </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-end">
+              <a role="button" href="pengajuan_praproposal.html" id="pra-pengajuan" class="btn btn-primary fw-bold">Pengajuan Pra Proposal </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- data skripsi -->
+
+    <!-- data sempro -->
+    <div class="accordion container p-3" id="accordionExample">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse1">Data Seminar Proposal</button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pengajuan Seminar Proposal</p>
+                <span id="sempro-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="sempro-bidang"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="sempro-judul"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Pembimbing</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosbing1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosbing2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Penguji</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosji1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosji2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pelaksanaan</p>
+                <span id="sempro-jadwal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Jam Pelaksanaan</p>
+                <span id="sempro-jam"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tempat Pelaksanaan</p>
+                <span id="sempro-tempat"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Folder Drive Seminar Proposal</p>
+                <button type="button" id="btn-link-sempro" class="btn btn-dark fw-bold mb-3"><a id="drive-sempro"></a></button>
+                <div class="alert alert-info" role="alert">
+                  <span>Unggah dokumen persyaratan sebelum mengajukan</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Status</p>
+                <button id="sempro-status" class="btn" disabled></button>
+                <button type="button" id="sempro-delete" class="btn btn-danger fw-bold">Hapus Pengajuan</button>
+              </div>
+              <div class="mb-0">
+                <div class="alert alert-info" role="alert">
+                  <span>Cek keseluruhan data karena mungkin terdapat perubahan</span>
+                </div>
+
+                <div class="alert alert-info mb-0" role="alert">
+                  <span>Jika status "Diterima", silahkan cek Undangan di Halaman Menu</span>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-end">
+              <a role="button" href="pengajuan_sempro.html" id="sempro-pengajuan" class="btn btn-primary fw-bold">Pengajuan Seminar Proposal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- data sempro -->
+
+    <!-- data semhas -->
+    <div class="accordion container p-3" id="accordionExample">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse1">Data Seminar Hasil</button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pengajuan Seminar Hasil</p>
+                <span id="semhas-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="semhas-bidang"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="semhas-judul"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Pembimbing</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosbing1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosbing2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Penguji</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosji1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosji2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pelaksanaan</p>
+                <span id="semhas-jadwal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Jam Pelaksanaan</p>
+                <span id="semhas-jam"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tempat Pelaksanaan</p>
+                <span id="semhas-tempat"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Folder Drive Seminar Hasil</p>
+                <button type="button" id="btn-link-semhas" class="btn btn-dark fw-bold mb-3"><a id="drive-semhas"></a></button>
+                <div class="alert alert-info" role="alert">
+                  <span>Unggah dokumen persyaratan sebelum mengajukan</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Status</p>
+                <button id="semhas-status" class="btn" disabled></button>
+                <button type="button" id="semhas-delete" class="btn btn-danger fw-bold">Hapus Pengajuan</button>
+              </div>
+              <div class="mb-0">
+                <div class="alert alert-info" role="alert">
+                  <span>Cek keseluruhan data karena mungkin terdapat perubahan</span>
+                </div>
+
+                <div class="alert alert-info mb-0" role="alert">
+                  <span>Jika status "Diterima", silahkan cek Undangan di Halaman Menu</span>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-end">
+              <a role="button" href="pengajuan_semhas.html" id="semhas-pengajuan" class="btn btn-primary fw-bold">Pengajuan Seminar Hasil</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- data sempro -->
+
+    <!-- bottom -->
+    <span class="py-5 bg-light">-</span>
+
+    <!-- edit profile -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="profile-edit-form">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="edit-password" class="form-label fw-bold">Password:</label>
+                <div class="d-flex justify-content-between gap-2">
+                  <input type="text" class="form-control" id="edit-password" name="Password" style="width: fit-content" readonly />
+                  <button type="button" class="btn btn-warning fw-bold" id="pw-gen">Generate</button>
+                </div>
+                <div class="alert alert-info my-3" role="alert">
+                  <span>Klik "Generate" untuk membuat password</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="edit-nama" class="form-label fw-bold">Nama:</label>
+                <input type="text" class="form-control" id="edit-nama" name="Nama" />
+              </div>
+              <div class="mb-3">
+                <label for="edit-email" class="form-label fw-bold">Email:</label>
+                <input type="email" class="form-control" id="edit-email" name="Email" />
+              </div>
+              <div class="mb-3">
+                <label for="edit-telepon" class="form-label fw-bold">Telepon:</label>
+                <input type="text" class="form-control" id="edit-telepon" name="Telepon" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- edit profile -->
+
+    <!-- add drive -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Buat Folder Drive</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <embed src="https://script.google.com/macros/s/AKfycbxbVvGzYK_0ye-hlQjGx6ijd7Evi5AtRAS3bjQYXFHVNZEb8vpjwnUWP-j3_BJRD2eM_A/exec" type="" class="w-100" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- add drive -->
+
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

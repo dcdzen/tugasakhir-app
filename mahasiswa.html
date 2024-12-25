@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Profil Pengguna</title>
+  </head>
+  <body class="bg-light">
+    <!-- navbar start -->
+    <div id="navbar"></div>
+    <!-- navbar end -->
+
+    <!-- profile -->
+    <section class="p-3 container">
+      <div class="my-auto">
+        <div class="bg-white border-light-subtle shadow p-3 gap-3 rounded-3">
+          <div class="d-flex justify-content-between">
+            <h2 class="text-center">Profil Mahasiswa</h2>
+            <a role="button" href="data_mahasiswa.html" class="btn btn-dark fw-bold">Kembali</a>
+          </div>
+          <hr />
+          <div class="overflow-x-auto py-2 w-100">
+            <div class="mb-3">
+              <p class="fw-bold mb-0">NPM</p>
+              <span id="profile-npm"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Password</p>
+              <span id="profile-password"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Nama</p>
+              <span id="profile-nama"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Email</p>
+              <span id="profile-email"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Telepon</p>
+              <span id="profile-telepon"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Tanggal Pembuatan Akun</p>
+              <span id="profile-tanggal-akun"></span>
+            </div>
+            <div class="mb-3">
+              <p class="fw-bold mb-0">Folder Drive Utama</p>
+              <button type="button" id="btn-link" class="btn btn-dark fw-bold"><a id="profile-drive"></a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- profile -->
+
+    <!-- data skripsi -->
+    <div class="accordion container p-3" id="accordionExample">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Data Skripsi (Pra Proposal)</button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample1">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pengajuan Pra Proposal</p>
+                <span id="pra-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="pra-bidang"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="pra-judul"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Pembimbing</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="pra-dosbing1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="pra-dosbing2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Folder Drive Pra Proposal</p>
+                <button type="button" id="btn-link-pra" class="btn btn-dark fw-bold"><a id="drive-pra"></a></button>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Status</p>
+                <button id="pra-status" class="btn" disabled></button>
+              </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-end">
+              <button type="button" id="pra-pengajuan" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">Konfirmasi Pra Proposal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- data skripsi -->
+
+    <!-- data sempro -->
+    <div class="accordion container p-3" id="accordionExample">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse1">Data Seminar Proposal</button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#accordionExample1">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pengajuan Seminar Proposal</p>
+                <span id="sempro-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="sempro-bidang"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="sempro-judul"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Pembimbing</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosbing1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosbing2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Penguji</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosji1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="sempro-dosji2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pelaksanaan</p>
+                <span id="sempro-jadwal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Jam Pelaksanaan</p>
+                <span id="sempro-jam"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tempat Pelaksanaan</p>
+                <span id="sempro-tempat"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Folder Drive Seminar Proposal</p>
+                <button type="button" id="btn-link-sempro" class="btn btn-dark fw-bold"><a id="drive-sempro"></a></button>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Status</p>
+                <button id="sempro-status" class="btn" disabled></button>
+              </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-end">
+              <button type="button" id="sempro-pengajuan" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal2">Konfirmasi Seminar Proposal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- data sempro -->
+
+    <!-- data semhas -->
+    <div class="accordion container p-3" id="accordionExample">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse1">Data Seminar Hasil</button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pengajuan Seminar Hasil</p>
+                <span id="semhas-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="semhas-bidang"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="semhas-judul"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Pembimbing</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosbing1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosbing2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Dosen Penguji</p>
+                <ol class="list-group list-group-numbered">
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosji1"></span>
+                    </div>
+                  </li>
+                  <li class="list-group-item border-0 p-0 d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                      <span id="semhas-dosji2"></span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal Pelaksanaan</p>
+                <span id="semhas-jadwal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Jam Pelaksanaan</p>
+                <span id="semhas-jam"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tempat Pelaksanaan</p>
+                <span id="semhas-tempat"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Folder Drive Seminar Hasil</p>
+                <button type="button" id="btn-link-semhas" class="btn btn-dark fw-bold"><a id="drive-semhas"></a></button>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Status</p>
+                <button id="semhas-status" class="btn" disabled></button>
+              </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-end">
+              <button type="button" id="semhas-pengajuan" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal3">Konfirmasi Seminar Hasil</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- data sempro -->
+
+    <!-- bottom -->
+    <span class="py-5 bg-light">-</span>
+
+    <!-- edit pra -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-bg-dark">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Konfirmasi Pra Proposal</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light">
+            <!-- edit start -->
+            <!-- Section for form -->
+            <section class="">
+              <div class="container my-auto">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-xxl-11">
+                    <div class="card border-light-subtle shadow-lg">
+                      <div class="row g-0">
+                        <div class="col-12 col-md-6">
+                          <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy" src="asset/girireka1.webp" alt="Welcome back you've been missed!" />
+                        </div>
+                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                          <div class="col-12 col-lg-11 col-xl-10">
+                            <div class="card-body p-3 p-md-4 p-xl-5">
+                              <h4 class="text-center mb-3">Konfirmasi Pra Proposal</h4>
+                              <hr />
+                              <form id="add-data-form">
+                                <div class="row gap-3 overflow-hidden">
+                                  <!-- Tanggal (hidden) -->
+                                  <input type="text" name="Tanggal" id="edit-tanggal" hidden />
+
+                                  <!-- NPM display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-npm" name="NPM" placeholder="2103201000" readonly />
+                                      <label for="npm" class="form-label">NPM</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Nama display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control text-uppercase" id="edit-nama" name="Nama" placeholder="NAMA LENGKAP" readonly />
+                                      <label for="nama" class="form-label">Nama Lengkap</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Bidang dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" name="Bidang" id="edit-bidang" required>
+                                        <option value="" disabled selected>Pilih Bidang</option>
+                                      </select>
+                                      <label for="bidang" class="form-label">Bidang</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Dosen dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" name="Pembimbing_1" id="edit-dosbing1" required>
+                                        <option value="" disabled selected>Pilih Dosen</option>
+                                      </select>
+                                      <label for="dosbing" class="form-label">Dosen Pembimbing 1</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Dosen dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" name="Pembimbing_2" id="edit-dosbing2">
+                                        <option value="" selected>Pilih Dosen</option>
+                                      </select>
+                                      <label for="dosbing" class="form-label">Dosen Pembimbing 2</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Judul input -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <textarea id="edit-judul" name="Judul" class="form-control text-uppercase" rows="4" required></textarea>
+                                      <label for="judul" class="form-label">Judul</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Dosen dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" name="Status" id="edit-status" required>
+                                        <option value="" disabled selected>Pilih Status</option>
+                                        <option value="Diproses">Diproses</option>
+                                        <option value="Ditolak">Ditolak</option>
+                                        <option value="Diterima">Diterima</option>
+                                      </select>
+                                      <label for="status" class="form-label">Status Pra Proposal</label>
+                                    </div>
+                                  </div>
+
+                                  <hr />
+
+                                  <!-- Submit button -->
+                                  <div class="col-12">
+                                    <button class="btn btn-success fw-bold w-100" type="submit">Konfirmasi</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- edit end -->
+          </div>
+          <div class="modal-footer bg-dark text-bg-dark">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- edit pra -->
+
+    <!-- edit sempro -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-bg-dark">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Konfirmasi Seminar Proposal</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light">
+            <!-- edit start -->
+            <!-- Section for form -->
+            <section class="">
+              <div class="container my-auto p-3 p-md-4 p-xl-5">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-xxl-11">
+                    <div class="card border-light-subtle shadow-sm">
+                      <div class="row g-0">
+                        <div class="col-12 col-md-6">
+                          <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy" src="asset/girireka1.webp" alt="Welcome back you've been missed!" />
+                        </div>
+                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                          <div class="col-12 col-lg-11 col-xl-10">
+                            <div class="card-body p-3 p-md-4 p-xl-5">
+                              <h4 class="text-center mb-3">Konfirmasi Seminar Proposal</h4>
+                              <hr />
+                              <form id="konfirmasi-sempro">
+                                <div class="row gap-3 overflow-hidden">
+                                  <!-- Tanggal (hidden) -->
+                                  <input type="text" name="Tanggal" id="edit-tanggal-sempro" hidden />
+
+                                  <!-- NPM display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-npm-sempro" name="NPM" placeholder="2103201000" readonly />
+                                      <label for="npm" class="form-label">NPM</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Nama display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control text-uppercase" id="edit-nama-sempro" name="Nama" placeholder="NAMA LENGKAP" readonly />
+                                      <label for="nama" class="form-label">Nama Lengkap</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Bidang display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-bidang-sempro" name="Bidang" placeholder="Bidang" readonly />
+                                      <label for="bidang" class="form-label">Bidang</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Judul input -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-judul-sempro" name="Judul" placeholder="Judul" readonly />
+                                      <label for="judul" class="form-label">Judul</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Dosen 1 display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-dosbing1-sempro" name="Pembimbing_1" placeholder="Pembimbing_1" readonly />
+                                      <label for="dosbing" class="form-label">Dosen Pembimbing 1</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Dosen 2 display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-dosbing2-sempro" name="Pembimbing_2" placeholder="Pembimbing_2" readonly />
+                                      <label for="dosbing" class="form-label">Dosen Pembimbing 2</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Penguji 1 dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" id="edit-dosji1-sempro" name="Penguji_1" required>
+                                        <option value="" disabled selected>Pilih Dosen</option>
+                                      </select>
+                                      <label for="dosji" class="form-label">Dosen Penguji 1</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Penguji 2 dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" id="edit-dosji2-sempro" name="Penguji_2" required>
+                                        <option value="" disabled selected>Pilih Dosen</option>
+                                      </select>
+                                      <label for="dosji" class="form-label">Dosen Penguji 2</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Jadwal input (change type to date) -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="date" class="form-control" id="edit-jadwal-sempro" name="Jadwal" placeholder="jadwal" required />
+                                      <label for="jadwal" class="form-label">Jadwal Seminar Proposal</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Jam Start input -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="time" value="07:00" class="form-control" id="edit-jam-mulai-sempro" name="Jam_Mulai" placeholder="Start Time" required />
+                                      <label for="jamMulai" class="form-label">Jam Mulai</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Jam End input -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="time" value="08:00" class="form-control" id="edit-jam-selesai-sempro" name="Jam_Selesai" placeholder="End Time" required />
+                                      <label for="jamSelesai" class="form-label">Jam Selesai</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Tempat dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" id="edit-tempat-sempro" name="Tempat" required>
+                                        <option value="" disabled selected>Pilih Tempat</option>
+                                        <option value="Ruang Seminar">Ruang Seminar FT2 Lantai 1</option>
+                                        <option value="Laboratorium Statistik">Laboratorium Statistik FT1 Lantai 2</option>
+                                      </select>
+                                      <label for="Tempat" class="form-label">Tempat Pelaksanaan</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Status dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" name="Status" id="edit-status-sempro" required>
+                                        <option value="" disabled selected>Pilih Status</option>
+                                        <option value="Diproses">Diproses</option>
+                                        <option value="Ditolak">Ditolak</option>
+                                        <option value="Diterima">Diterima</option>
+                                      </select>
+                                      <label for="status" class="form-label">Status Pra Proposal</label>
+                                    </div>
+                                  </div>
+
+                                  <hr />
+
+                                  <!-- Submit button -->
+                                  <div class="col-12 mt-2">
+                                    <div class="d-grid">
+                                      <button class="btn btn-success fw-bold" type="submit">Ajukan</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <div class="d-flex gap-2 justify-content-between mt-2">
+                                        <a href="profile.html" class="btn btn-dark fw-bold">Kembali</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- edit end -->
+          </div>
+          <div class="modal-footer bg-dark text-bg-dark">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- edit sempro -->
+
+    <!-- edit semhas -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-bg-dark">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Konfirmasi Seminar Hasil</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light">
+            <!-- edit start -->
+            <!-- Section for form -->
+            <section class="">
+              <div class="container my-auto p-3 p-md-4 p-xl-5">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-xxl-11">
+                    <div class="card border-light-subtle shadow-sm">
+                      <div class="row g-0">
+                        <div class="col-12 col-md-6">
+                          <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy" src="asset/girireka1.webp" alt="Welcome back you've been missed!" />
+                        </div>
+                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                          <div class="col-12 col-lg-11 col-xl-10">
+                            <div class="card-body p-3 p-md-4 p-xl-5">
+                              <h4 class="text-center mb-3">Konfirmasi Seminar Hasil</h4>
+                              <hr />
+                              <form id="konfirmasi-semhas">
+                                <div class="row gap-3 overflow-hidden">
+                                  <!-- Tanggal (hidden) -->
+                                  <input type="text" name="Tanggal" id="edit-tanggal-semhas" hidden />
+
+                                  <!-- NPM display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-npm-semhas" name="NPM" placeholder="2103201000" readonly />
+                                      <label for="npm" class="form-label">NPM</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Nama display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control text-uppercase" id="edit-nama-semhas" name="Nama" placeholder="NAMA LENGKAP" readonly />
+                                      <label for="nama" class="form-label">Nama Lengkap</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Bidang display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-bidang-semhas" name="Bidang" placeholder="Bidang" readonly />
+                                      <label for="bidang" class="form-label">Bidang</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Judul input -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-judul-semhas" name="Judul" placeholder="Judul" readonly />
+                                      <label for="judul" class="form-label">Judul</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Dosen 1 display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-dosbing1-semhas" name="Pembimbing_1" placeholder="Pembimbing_1" readonly />
+                                      <label for="dosbing" class="form-label">Dosen Pembimbing 1</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Dosen 2 display -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="edit-dosbing2-semhas" name="Pembimbing_2" placeholder="Pembimbing_2" readonly />
+                                      <label for="dosbing" class="form-label">Dosen Pembimbing 2</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Penguji 1 dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" id="edit-dosji1-semhas" name="Penguji_1" required>
+                                        <option value="" disabled selected>Pilih Dosen</option>
+                                      </select>
+                                      <label for="dosji" class="form-label">Dosen Penguji 1</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Penguji 2 dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" id="edit-dosji2-semhas" name="Penguji_2" required>
+                                        <option value="" disabled selected>Pilih Dosen</option>
+                                      </select>
+                                      <label for="dosji" class="form-label">Dosen Penguji 2</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Jadwal input (change type to date) -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="date" class="form-control" id="edit-jadwal-semhas" name="Jadwal" placeholder="jadwal" required />
+                                      <label for="jadwal" class="form-label">Jadwal Seminar Proposal</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Jam Start input -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="time" value="07:00" class="form-control" id="edit-jam-mulai-semhas" name="Jam_Mulai" placeholder="Start Time" required />
+                                      <label for="jamMulai" class="form-label">Jam Mulai</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Jam End input -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <input type="time" value="08:00" class="form-control" id="edit-jam-selesai-semhas" name="Jam_Selesai" placeholder="End Time" required />
+                                      <label for="jamSelesai" class="form-label">Jam Selesai</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Tempat dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" id="edit-tempat-semhas" name="Tempat" required>
+                                        <option value="" disabled selected>Pilih Tempat</option>
+                                        <option value="Ruang Seminar">Ruang Seminar FT2 Lantai 1</option>
+                                        <option value="Laboratorium Statistik">Laboratorium Statistik FT1 Lantai 2</option>
+                                      </select>
+                                      <label for="Tempat" class="form-label">Tempat Pelaksanaan</label>
+                                    </div>
+                                  </div>
+
+                                  <!-- Status dropdown -->
+                                  <div class="col-12">
+                                    <div class="form-floating">
+                                      <select class="form-select" name="Status" id="edit-status-semhas" required>
+                                        <option value="" disabled selected>Pilih Status</option>
+                                        <option value="Diproses">Diproses</option>
+                                        <option value="Ditolak">Ditolak</option>
+                                        <option value="Diterima">Diterima</option>
+                                      </select>
+                                      <label for="status" class="form-label">Status Seminar Hasil</label>
+                                    </div>
+                                  </div>
+
+                                  <hr />
+
+                                  <!-- Submit button -->
+                                  <div class="col-12 mt-2">
+                                    <div class="d-grid">
+                                      <button class="btn btn-success fw-bold" type="submit">Ajukan</button>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <div class="d-flex gap-2 justify-content-between mt-2">
+                                        <a href="profile.html" class="btn btn-dark fw-bold">Kembali</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- edit end -->
+          </div>
+          <div class="modal-footer bg-dark text-bg-dark">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- edit semhas -->
+
+    <!-- Toast container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto" id="toastTitle">Bootstrap</strong>
+          <small>Just Now</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div id="toastBody" class="toast-body">Hello, world! This is a toast message.</div>
+      </div>
+    </div>
+
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="mahasiswa.js"></script>
+    <script src="konfirmasi_praproposal.js"></script>
+    <script src="konfirmasi_sempro.js"></script>
+    <script src="konfirmasi_semhas.js"></script>
+  </body>
+</html>

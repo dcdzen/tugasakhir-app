@@ -1,0 +1,128 @@
+YG SUDAH TAMPILAN
+.registrasi
+.login
+.login dosen
+.navbar
+
+YG SUDAH SISTEM
+.tabel mahasiswa
+.tabel dosen
+
+.filter bidang
+.filter dosen
+
+.profile mahasiswa
+.profile dosen
+
+.add mahasiswa
+
+.edit mahasiswa
+.edit dosen
+
+.hapus mahasiswa
+
+.opsi bidang
+.opsi dosen
+
+.popup hapus
+.popup alert
+
+
+.upload file
+.add prapro
+
+YG BELUM SISTEM
+.add sempro
+.add semhas
+.tabel prapro
+.tabel sempro
+.tabel semhas
+.tabel mahasiswa yang dibimbing
+.data prapro mahasiswa
+.data sempro mahasiswa
+.data semhas mahasiswa
+.data bimbingan mahasiswa
+
+
+<!-- data Praproposal -->
+    <!-- <div class="accordion container p-3" id="accordionExample2">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">Data Pra Proposal</button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal</p>
+                <span id="profile-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="profile-bidang"></span>
+              </div>
+              <div class="mb-0">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="profile-judul"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- data Praproposal -->
+
+    <!-- data Sempro -->
+    <!-- <div class="accordion container p-3" id="accordionExample3">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">Data Seminar Proposal</button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal</p>
+                <span id="profile-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="profile-bidang"></span>
+              </div>
+              <div class="mb-0">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="profile-judul"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- data Sempro -->
+    <!-- data Semhas -->
+    <!-- <div class="accordion container p-3" id="accordionExample4">
+      <div class="accordion-item bg-white border-light-subtle shadow">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">Data Seminar Hasil</button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+          <div class="accordion-body">
+            <div class="overflow-x-auto p-2 w-100">
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Tanggal</p>
+                <span id="profile-tanggal"></span>
+              </div>
+              <div class="mb-3">
+                <p class="fw-bold mb-0">Bidang</p>
+                <span id="profile-bidang"></span>
+              </div>
+              <div class="mb-0">
+                <p class="fw-bold mb-0">Judul</p>
+                <span id="profile-judul"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- data Semhas -->
