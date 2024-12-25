@@ -1,8 +1,3 @@
-const user = JSON.parse(localStorage.getItem("loggedInUser"));
-if (user.Status === "Dosen" || user.Status === "Mahasiswa") {
-  window.location.href = "index.html";
-}
-
 document.getElementById("login-form").addEventListener("submit", async function (event) {
   event.preventDefault();
 
