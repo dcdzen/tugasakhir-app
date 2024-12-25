@@ -12,8 +12,6 @@
     <div id="navbar"></div>
     <!-- navbar end -->
 
-    <h2 style="text-align: center">Tabel Data Mahasiswa</h2>
-
     <!-- Delete Popup -->
     <div class="modal fade" id="delete-popup" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -40,27 +38,27 @@
       </div>
     </div>
 
-    <section class="container">
-      <!-- Filter Dropdown -->
-      <select id="filter-bidang" class="form-select" aria-label="Default select example">
-        <option value="All">Semua Bidang</option>
-        <option value="Sistem dan Proses Manufaktur">Sistem dan Proses Manufaktur</option>
-        <option value="Manajemen Bisnis dan Kewirausahaan">Manajemen Bisnis dan Kewirausahaan</option>
-        <option value="Logistik dan Manajemen Supply Chain">Logistik dan Manajemen Supply Chain</option>
-        <option value="Optimasi dan Pemodelan Sistem">Optimasi dan Pemodelan Sistem</option>
-        <option value="Ergonomi dan Desain Produk">Ergonomic and Product Design</option>
-      </select>
-
-      <!-- Filter Dropdown for Dosen -->
-      <select id="filter-dosen" class="form-select" aria-label="Default select example">
-        <option value="All">Semua Dosen</option>
-        <!-- Options will be dynamically populated using JavaScript -->
-      </select>
-    </section>
-
     <section class="p-3 container">
       <div class="my-auto">
         <div class="bg-white shadow p-3 rounded-3">
+          <section class="">
+            <!-- Filter Dropdown -->
+            <select id="filter-bidang" class="form-select" aria-label="Default select example">
+              <option value="All">Semua Bidang</option>
+              <option value="Sistem dan Proses Manufaktur">Sistem dan Proses Manufaktur</option>
+              <option value="Manajemen Bisnis dan Kewirausahaan">Manajemen Bisnis dan Kewirausahaan</option>
+              <option value="Logistik dan Manajemen Supply Chain">Logistik dan Manajemen Supply Chain</option>
+              <option value="Optimasi dan Pemodelan Sistem">Optimasi dan Pemodelan Sistem</option>
+              <option value="Ergonomi dan Desain Produk">Ergonomic and Product Design</option>
+            </select>
+
+            <!-- Filter Dropdown for Dosen -->
+            <select id="filter-dosen" class="form-select" aria-label="Default select example">
+              <option value="All">Semua Dosen</option>
+              <!-- Options will be dynamically populated using JavaScript -->
+            </select>
+          </section>
+
           <div class="table-responsive overflow-y-auto overflow-x-clip" style="height: 70vh">
             <table class="table table-bordered m-0 table-hover" style="table-layout: auto; width: 120%">
               <thead class="sticky-top text-center">
