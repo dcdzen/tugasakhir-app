@@ -62,56 +62,34 @@ function updateContent(elementId, content, relatedButtonId) {
   if (statusPra.textContent === "Diproses") {
     statusPra.classList.remove("text-black");
     statusPra.classList.add("btn", "btn-warning", "fw-bold");
-
-    pengajuanPra.classList.remove("disabled");
   } else if (statusPra.textContent === "Diterima") {
     statusPra.classList.remove("text-black");
     statusPra.classList.add("btn", "btn-success", "fw-bold");
-
-    pengajuanPra.classList.add("disabled");
   } else if (statusPra.textContent === "Ditolak") {
     statusPra.classList.remove("text-black");
     statusPra.classList.add("btn", "btn-danger", "fw-bold");
-
-    pengajuanPra.classList.remove("disabled");
   }
   // sempro
   if (statusSempro.textContent === "Diproses") {
     statusSempro.classList.remove("text-black");
     statusSempro.classList.add("btn", "btn-warning", "fw-bold");
-
-    pengajuanSempro.classList.remove("disabled");
   } else if (statusSempro.textContent === "Diterima") {
     statusSempro.classList.remove("text-black");
     statusSempro.classList.add("btn", "btn-success", "fw-bold");
-
-    pengajuanSempro.classList.add("disabled");
   } else if (statusSempro.textContent === "Ditolak") {
     statusSempro.classList.remove("text-black");
     statusSempro.classList.add("btn", "btn-danger", "fw-bold");
-
-    pengajuanSempro.classList.remove("disabled");
-  } else if (statusSempro.textContent === "") {
-    pengajuanSempro.classList.add("disabled");
   }
   // semhas
   if (statusSemhas.textContent === "Diproses") {
     statusSemhas.classList.remove("text-black");
     statusSemhas.classList.add("btn", "btn-warning", "fw-bold");
-
-    pengajuanSemhas.classList.remove("disabled");
   } else if (statusSemhas.textContent === "Diterima") {
     statusSemhas.classList.remove("text-black");
     statusSemhas.classList.add("btn", "btn-success", "fw-bold");
-
-    pengajuanSemhas.classList.add("disabled");
   } else if (statusSemhas.textContent === "Ditolak") {
     statusSemhas.classList.remove("text-black");
     statusSemhas.classList.add("btn", "btn-danger", "fw-bold");
-
-    pengajuanSemhas.classList.remove("disabled");
-  } else if (statusSempro.textContent === "") {
-    pengajuanSemhas.classList.add("disabled");
   }
 }
 

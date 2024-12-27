@@ -11,6 +11,18 @@ if (!user) {
   }
 }
 
+// status
+const statusPra = document.getElementById("pra-status");
+const pengajuanPra = document.getElementById("pra-pengajuan");
+
+const statusSempro = document.getElementById("sempro-status");
+const deleteSempro = document.getElementById("sempro-delete");
+const pengajuanSempro = document.getElementById("sempro-pengajuan");
+
+const statusSemhas = document.getElementById("semhas-status");
+const deleteSemhas = document.getElementById("semhas-delete");
+const pengajuanSemhas = document.getElementById("semhas-pengajuan");
+
 // Helper function to update content and manage button visibility
 function updateContent(elementId, content, relatedButtonId) {
   const element = document.getElementById(elementId);
@@ -22,18 +34,6 @@ function updateContent(elementId, content, relatedButtonId) {
   // Handle button visibility and profile visibility explicitly
   const relatedButton = document.getElementById(relatedButtonId);
   const profileDrive = document.getElementById("btn-link");
-
-  // status
-  const statusPra = document.getElementById("pra-status");
-  const pengajuanPra = document.getElementById("pra-pengajuan");
-
-  const statusSempro = document.getElementById("sempro-status");
-  const deleteSempro = document.getElementById("sempro-delete");
-  const pengajuanSempro = document.getElementById("sempro-pengajuan");
-
-  const statusSemhas = document.getElementById("semhas-status");
-  const deleteSemhas = document.getElementById("semhas-delete");
-  const pengajuanSemhas = document.getElementById("semhas-pengajuan");
 
   pengajuanSempro.classList.add("disabled");
   pengajuanSemhas.classList.add("disabled");
@@ -183,6 +183,10 @@ function loadUserProfile() {
         } else {
           profileDrive.href = "#";
           profileDrive.textContent = "Folder Drive Utama Tidak Tersedia"; // Fallback text
+
+          pengajuanPra.classList.add("disabled");
+          pengajuanSempro.classList.add("disabled");
+          pengajuanSemhas.classList.add("disabled");
 
           drivePra.href = "#"; // No link available
           drivePra.textContent = "Drive Pra Proposal Tidak Tersedia"; // Update text when link is not available

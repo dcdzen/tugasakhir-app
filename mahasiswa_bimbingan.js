@@ -30,7 +30,6 @@ async function fetchData() {
     const data = await response.json();
     allData = data;
     renderTable(data);
-    populateDosenFilter();
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -84,56 +83,6 @@ async function renderTable(data) {
     tableBody.appendChild(row);
   });
 }
-
-// filter dosen
-function populateDosenFilter(selectedBidang) {
-  const dosenFilter = document.getElementById("filter-dosen");
-
-  // Filter data based on the selected "Bidang"
-  const filteredNames = selectedBidang === "All" ? allData.map((item) => item.Pembimbing_1) : allData.filter((item) => item.Bidang === selectedBidang).map((item) => item.Pembimbing_1);
-
-  // Get unique names
-  const uniqueNames = [...new Set(filteredNames)];
-
-  // Populate dropdown
-  dosenFilter.innerHTML = '<option value="All">Semua Dosen</option>';
-  uniqueNames.forEach((name) => {
-    const option = document.createElement("option");
-    option.value = name;
-    option.textContent = name;
-    dosenFilter.appendChild(option);
-  });
-}
-
-// filter tabel
-function filterTable(event) {
-  event.preventDefault(); // Prevent form submission from refreshing the page
-
-  const bidangValue = document.getElementById("filter-bidang").value;
-  const dosenValue = document.getElementById("filter-dosen").value;
-
-  // Filter table data
-  let filteredData = allData;
-
-  if (bidangValue !== "All") {
-    filteredData = filteredData.filter((item) => item.Bidang === bidangValue);
-  }
-
-  if (dosenValue !== "All") {
-    filteredData = filteredData.filter((item) => item.Pembimbing_1 === dosenValue);
-  }
-
-  renderTable(filteredData);
-}
-
-// Initialize the filters on "Bidang" change
-document.getElementById("filter-bidang").addEventListener("change", (event) => {
-  const bidangValue = event.target.value;
-  populateDosenFilter(bidangValue);
-});
-
-// Add a submit button for filtering
-document.getElementById("filter-form").addEventListener("submit", filterTable);
 
 function selectedMahasiswa(index) {
   const selectedData = allData[index];

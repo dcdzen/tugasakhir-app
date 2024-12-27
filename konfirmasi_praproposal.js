@@ -135,6 +135,10 @@ document.getElementById("add-data-form").addEventListener("submit", async (e) =>
   const formData = new FormData(e.target);
   const data = Object.fromEntries(formData.entries());
 
+  if (data.Status === "Diterima") {
+    console.log(data.Status);
+  }
+
   try {
     const response = await fetch(`https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Praproposal/NPM/${data.NPM}`, {
       method: "PUT",
@@ -142,6 +146,34 @@ document.getElementById("add-data-form").addEventListener("submit", async (e) =>
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
+    });
+
+    const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
+    const callDosenData = await responseCallDosen.json();
+    const callDosen = callDosenData.find((item) => item.NIP === user.NIP);
+
+    callDosen.Slot = parseInt(callDosen.Slot, 10); // or use `+callDosen.Slot`
+    const plusSlot = callDosen.Slot + 1;
+
+    // Get the updated values from the form
+    const updatedSlotDosen = {
+      NIP: callDosen.NIP,
+      NIDN: callDosen.NIDN,
+      Nama: callDosen.Nama,
+      Fungsional: callDosen.Fungsional,
+      Bidang: callDosen.Bidang,
+      Telepon: callDosen.Telepon,
+      Email: callDosen.Email,
+      Password: callDosen.Password,
+      Slot: plusSlot,
+    };
+
+    const responseDosen = await fetch(`https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen/NIP/${user.NIP}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedSlotDosen),
     });
 
     if (response.ok) {

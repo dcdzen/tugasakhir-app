@@ -68,14 +68,25 @@
     <div class="accordion container p-3" id="accordionExample">
       <div class="accordion-item bg-white border-light-subtle shadow">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse1">Data Bimbingan</button>
+          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse1" id="info-title">Data Bimbingan</button>
         </h2>
         <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#accordionExample1">
           <div class="accordion-body">
             <div class="overflow-x-auto p-2 w-100">
-              <div class="mb-3">
-                <p class="fw-bold mb-0">Data Mahasiswa Bimbingan</p>
+              <div class="mb-3" id="info-admin">
+                <p class="fw-bold mb-0">Data Seluruh Mahasiswa</p>
+                <p class="mb-1">Ini adalah data seluruh mahasiswa Teknik Industri yang mengajukan skripsi</p>
                 <a role="button" href="data_mahasiswa.html" id="sempro-pengajuan" class="btn btn-primary fw-bold">Lihat Data</a>
+              </div>
+              <div class="mb-3" id="info-dosen">
+                <p class="fw-bold mb-0">Data Mahasiswa Bimbingan</p>
+                <p class="mb-1">Ini adalah data mahasiswa yang dibimbing oleh Anda sebagai Dosen Pembimbing</p>
+                <a role="button" href="mahasiswa_bimbingan.html" id="sempro-pengajuan" class="btn btn-primary fw-bold">Lihat Data</a>
+              </div>
+              <div class="mb-3" id="info-drive">
+                <p class="fw-bold mb-0">Pembuatan Folder Drive Skripsi</p>
+                <p class="mb-1">Ini adalah tombol untuk membuat Folder Drive Skripsi. Masukkan link Google Drive Utama, kemudian klik <strong>"Buat Folder"</strong> untuk membuat 7 folder di dalamnya.</p>
+                <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal2">Buat Folder</button>
               </div>
             </div>
             <hr />
@@ -131,6 +142,26 @@
       </div>
     </div>
     <!-- edit profile -->
+
+    <!-- Buat Folder -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel2">Pembuatan Folder Drive Skripsi</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <embed src="https://script.google.com/macros/s/AKfycbxbVvGzYK_0ye-hlQjGx6ijd7Evi5AtRAS3bjQYXFHVNZEb8vpjwnUWP-j3_BJRD2eM_A/exec/drive.html" type="" height="300px" class="w-100" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Buat Folder -->
 
     <!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
