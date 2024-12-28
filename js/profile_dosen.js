@@ -5,7 +5,7 @@ if (!user) {
   // return;
 } else if (user.Status === "Mahasiswa") {
   console.error("Hanya untuk dosen");
-  window.location.href = "login.html";
+  window.location.href = "login_dosen.html";
 }
 
 // navbar
@@ -16,12 +16,36 @@ fetch("navbar.html")
 
     if (user.Status === "Mahasiswa") {
       document.getElementById("cek-profile").href = "profile.html";
+      document.getElementById("cek-menu").hidden = false;
     } else if (user.Status === "Dosen") {
       document.getElementById("cek-profile").href = "profile_dosen.html";
+      document.getElementById("cek-menu").hidden = true;
+    } else if (user.Status === "Admin") {
+      document.getElementById("cek-profile").href = "profile_dosen.html";
+      document.getElementById("cek-menu").hidden = false;
     }
   });
 
 async function renderButton() {
+  const responseCallDrive = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Drive");
+  const callDriveData = await responseCallDrive.json();
+  const callDrive = callDriveData.find((item) => item.Drive !== null);
+
+  if (callDrive.Drive) {
+    document.getElementById("info-create").textContent = "Folder Sudah Dibuat";
+    document.getElementById("info-create").disabled = true;
+
+    document.getElementById("link-drive").href = callDriveData.find((item) => item.No === "1").Drive;
+    document.getElementById("link-drive-mahasiswa").href = callDriveData.find((item) => item.No === "2").Drive;
+    document.getElementById("link-formlab").href = callDriveData.find((item) => item.No === "5").Drive;
+    document.getElementById("link-st").href = callDriveData.find((item) => item.No === "6").Drive;
+  } else {
+    console.log("Link tidak ditemukan!");
+
+    document.getElementById("info-drive").hidden = true;
+    document.getElementById("info-create").hidden = false;
+  }
+
   const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
   const callDosenData = await responseCallDosen.json();
   const callDosen = callDosenData.filter((item) => item.Fungsional === "Admin");
@@ -35,19 +59,19 @@ async function renderButton() {
       isAdmin = true;
       console.log("admin");
 
-      document.getElementById("info-title").textContent = "Menu Admin";
-      document.getElementById("info-dosen").hidden = true;
-      document.getElementById("info-admin").hidden = false;
       document.getElementById("info-drive").hidden = false;
+      document.getElementById("info-drive-mahasiswa").hidden = false;
+
+      document.getElementById("info-dosen").hidden = true;
 
       break; // Stop checking once admin status is confirmed
     } else {
       console.log("bukan admin");
 
-      document.getElementById("info-title").textContent = "Data Bimbingan";
-      document.getElementById("info-dosen").hidden = false;
-      document.getElementById("info-admin").hidden = true;
       document.getElementById("info-drive").hidden = true;
+      document.getElementById("info-drive-mahasiswa").hidden = true;
+
+      document.getElementById("info-dosen").hidden = false;
     }
   }
 }

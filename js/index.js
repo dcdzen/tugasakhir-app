@@ -7,12 +7,15 @@ function navbar() {
     .then((data) => {
       document.getElementById("navbar").innerHTML = data;
 
-      if (!user) {
-        document.getElementById("cek-profile").href = "login.html";
+      if (user.Status === "Mahasiswa") {
+        document.getElementById("cek-profile").href = "profile.html";
+        document.getElementById("cek-menu").hidden = false;
       } else if (user.Status === "Dosen") {
         document.getElementById("cek-profile").href = "profile_dosen.html";
-      } else if (user.Status === "Mahasiswa") {
-        document.getElementById("cek-profile").href = "profile.html";
+        document.getElementById("cek-menu").hidden = true;
+      } else if (user.Status === "Admin") {
+        document.getElementById("cek-profile").href = "profile_dosen.html";
+        document.getElementById("cek-menu").hidden = false;
       }
     });
 

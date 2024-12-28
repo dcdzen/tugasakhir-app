@@ -462,8 +462,13 @@ fetch("navbar.html")
 
     if (user.Status === "Mahasiswa") {
       document.getElementById("cek-profile").href = "profile.html";
+      document.getElementById("cek-menu").hidden = false;
     } else if (user.Status === "Dosen") {
       document.getElementById("cek-profile").href = "profile_dosen.html";
+      document.getElementById("cek-menu").hidden = true;
+    } else if (user.Status === "Admin") {
+      document.getElementById("cek-profile").href = "profile_dosen.html";
+      document.getElementById("cek-menu").hidden = false;
     }
   });
 

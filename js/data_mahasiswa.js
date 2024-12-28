@@ -21,8 +21,13 @@ async function fetchData() {
 
       if (user.Status === "Mahasiswa") {
         document.getElementById("cek-profile").href = "profile.html";
+        document.getElementById("cek-menu").hidden = false;
       } else if (user.Status === "Dosen") {
         document.getElementById("cek-profile").href = "profile_dosen.html";
+        document.getElementById("cek-menu").hidden = true;
+      } else if (user.Status === "Admin") {
+        document.getElementById("cek-profile").href = "profile_dosen.html";
+        document.getElementById("cek-menu").hidden = false;
       }
     });
   try {
@@ -35,7 +40,6 @@ async function fetchData() {
     console.error("Error fetching data:", error);
   }
 }
-// ADMIN +============================================================================
 
 async function renderTable(data) {
   const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");

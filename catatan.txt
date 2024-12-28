@@ -44,6 +44,126 @@ YG BELUM SISTEM
 .data bimbingan mahasiswa
 
 
+        <ul class="nav nav-pills nav-stacked fw-bold" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation" id="info-dosen">
+            <button class="nav-link" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">Mahasiswa Bimbingan</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false">Data Dosen</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false">Data Jadwal</button>
+          </li>
+          <!-- admin -->
+          <li class="nav-item" role="presentation" id="info-mahasiswa">
+            <button class="nav-link" id="pills-4-tab" data-bs-toggle="pill" data-bs-target="#pills-4" type="button" role="tab" aria-controls="pills-4" aria-selected="false">Data Mahasiswa</button>
+          </li>
+          <!-- admin -->
+          <li class="nav-item" role="presentation" id="info-drive">
+            <button class="nav-link" id="pills-5-tab" data-bs-toggle="pill" data-bs-target="#pills-5" type="button" role="tab" aria-controls="pills-5" aria-selected="false">Folder Drive Skripsi</button>
+          </li>
+          <!-- admin -->
+          <li class="nav-item" role="presentation" id="info-drive-mahasiswa">
+            <button class="nav-link" id="pills-6-tab" data-bs-toggle="pill" data-bs-target="#pills-6" type="button" role="tab" aria-controls="pills-6" aria-selected="false">Folder Drive Mahasiswa</button>
+          </li>
+          <li class="nav-item" role="presentation" id="info-formlab">
+            <button class="nav-link" id="pills-7-tab" data-bs-toggle="pill" data-bs-target="#pills-7" type="button" role="tab" aria-controls="pills-7" aria-selected="false">Form Lab Dosen</button>
+          </li>
+          <li class="nav-item" role="presentation" id="info-st">
+            <button class="nav-link" id="pills-8-tab" data-bs-toggle="pill" data-bs-target="#pills-8" type="button" role="tab" aria-controls="pills-8" aria-selected="false">Surat Tugas</button>
+          </li>
+        </ul>
+        <hr />
+
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
+            <!-- bimbingan -->
+            <div class="card shadow">
+              <div class="card-header fw-bold">Data Mahasiswa Bimbingan</div>
+              <div class="card-body">
+                <p class="card-text">Ini adalah data mahasiswa yang dibimbing oleh Anda sebagai Dosen Pembimbing</p>
+                <a role="button" href="mahasiswa_bimbingan.html" id="sempro-pengajuan" class="btn btn-primary fw-bold">Lihat Data</a>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
+            <!-- dosen -->
+            <div class="card shadow">
+              <div class="card-header fw-bold">Data Dosen</div>
+              <div class="card-body">
+                <p class="card-text">Ini adalah data keseluruhan dosen Teknik Industri</p>
+                <a role="button" href="data_dosen.html" id="sempro-pengajuan" class="btn btn-primary fw-bold">Lihat Data</a>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab" tabindex="0">
+            <!-- jadwal -->
+            <div class="card shadow">
+              <div class="card-header fw-bold">Data Jadwal</div>
+              <div class="card-body">
+                <p class="card-text">Ini adalah data jadwal Seminar Proposal dan Seminar Hasil</p>
+                <a role="button" href="data_jadwal.html" id="sempro-pengajuan" class="btn btn-primary fw-bold">Lihat Data</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab" tabindex="0">
+            <!-- mahasiswa // admin -->
+            <div class="card shadow">
+              <div class="card-header fw-bold">Data Mahasiswa</div>
+              <div class="card-body">
+                <p class="card-text">Ini adalah data seluruh mahasiswa Teknik Industri yang mengajukan skripsi</p>
+                <a role="button" href="data_mahasiswa.html" id="sempro-pengajuan" class="btn btn-primary fw-bold">Lihat Data</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- drive // admin -->
+          <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab" tabindex="0">
+            <div class="card shadow">
+              <div class="card-header fw-bold">Drive Skripsi</div>
+              <div class="card-body">
+                <p class="card-text">Ini adalah tombol untuk membuat Folder Drive Skripsi dengan beberapa Subfolder. Masukkan Link Drive Utama untuk membuat SubFolder Drive. Pastikan Link Drive sudah diberi akses untuk Edit.</p>
+                <button id="info-create" type="button" class="btn btn-success fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal2">Buat Folder</button>
+                <a id="link-drive" role="button" class="btn btn-primary fw-bold">Lihat Folder</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- mahasiswa -->
+          <div class="tab-pane fade" id="pills-6" role="tabpanel" aria-labelledby="pills-6-tab" tabindex="0">
+            <div class="card shadow">
+              <div class="card-header fw-bold">Drive Mahasiswa</div>
+              <div class="card-body">
+                <p class="card-text">Ini adalah folder drive mahasiswa yang mengajukan skripsi yang berisikan dokumen persyaratan Pra Proposal, Seminar Proposal, dan Seminar Hasil</p>
+                <a role="button" id="link-drive-mahasiswa" class="btn btn-primary fw-bold">Lihat Folder</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- formlab -->
+          <div class="tab-pane fade" id="pills-7" role="tabpanel" aria-labelledby="pills-7-tab" tabindex="0">
+            <div class="card shadow">
+              <div class="card-header fw-bold">Folder Form Lab</div>
+              <div class="card-body">
+                <p class="card-text">Unggah Form Lab agar mahasiswa bisa mencetak dan diberikan ke Tata Usaha Fakultas Teknik untuk dibuatkan Surat Tugas</p>
+                <a role="button" id="link-formlab" class="btn btn-primary fw-bold">Lihat Folder</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- mahasiswa // admin -->
+          <div class="tab-pane fade" id="pills-8" role="tabpanel" aria-labelledby="pills-8-tab" tabindex="0">
+            <div class="card shadow">
+              <div class="card-header fw-bold">Dokumen Surat Tugas</div>
+              <div class="card-body">
+                <p class="card-text">Ini adalah folder Surat Tugas dari Tata Usaha Fakultas Teknik yang diunggah oleh mahasiswa</p>
+                <a role="button" id="link-st" class="btn btn-primary fw-bold">Lihat Folder</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
 <!-- data Praproposal -->
     <!-- <div class="accordion container p-3" id="accordionExample2">
       <div class="accordion-item bg-white border-light-subtle shadow">

@@ -15,13 +15,30 @@ document.getElementById("login-dosen").addEventListener("submit", async function
 
     const user = data.find((item) => item.NIP === username && item.Password === password);
 
+    const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
+    const callDosenData = await responseCallDosen.json();
+    const callDosen = callDosenData.filter((item) => item.Fungsional === "Admin");
+
+    var statusCheck = "Dosen";
+
+    for (let i = 0; i < callDosen.length; i++) {
+      const dosen = callDosen[i];
+      if (dosen.NIP === user.NIP) {
+        statusCheck = "Admin";
+        console.log("admin");
+        break; // Stop checking once admin status is confirmed
+      } else {
+        console.log("bukan admin");
+      }
+    }
+
     if (user) {
       // Store user data in localStorage
       // Extract only the required fields
       const simplifiedUser = {
         NIP: user.NIP,
         Nama: user.Nama,
-        Status: "Dosen",
+        Status: statusCheck,
       };
       // Store user data in localStorage
       localStorage.setItem("loggedInUser", JSON.stringify(simplifiedUser));

@@ -21,8 +21,13 @@ async function fetchData() {
 
       if (user.Status === "Mahasiswa") {
         document.getElementById("cek-profile").href = "profile.html";
+        document.getElementById("cek-menu").hidden = false;
       } else if (user.Status === "Dosen") {
         document.getElementById("cek-profile").href = "profile_dosen.html";
+        document.getElementById("cek-menu").hidden = true;
+      } else if (user.Status === "Admin") {
+        document.getElementById("cek-profile").href = "profile_dosen.html";
+        document.getElementById("cek-menu").hidden = false;
       }
     });
   try {
@@ -40,6 +45,9 @@ async function renderTable(data) {
   const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
   const callDosenData = await responseCallDosen.json();
   const callDosen = callDosenData.filter((item) => item.Fungsional === "Admin");
+  const selectDosen = callDosenData.find((item) => item.NIP === user.NIP);
+
+  console.log(selectDosen.NIP);
 
   const tableBody = document.getElementById("data-table-body");
   tableBody.innerHTML = ""; // Clear any existing rows
@@ -58,8 +66,11 @@ async function renderTable(data) {
     }
   }
 
+  // Filter data based on selectDosen.Nama and Pembimbing_1
+  const filteredData = data.filter((item) => item.Pembimbing_1 === selectDosen.Nama);
+
   // Generate table rows
-  data.forEach((item, index) => {
+  filteredData.forEach((item, index) => {
     const row = document.createElement("tr");
 
     // Conditional hidden attribute for the delete button
