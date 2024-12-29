@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <title>Home</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function (OneSignal) {
+        await OneSignal.init({
+          appId: "66fdc5aa-a976-4b5e-983b-70262c8b2a30",
+        });
+      });
+    </script>
   </head>
   <body>
     <!-- navbar start -->
