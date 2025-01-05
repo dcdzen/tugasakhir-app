@@ -7,6 +7,8 @@ function navbar() {
     .then((data) => {
       document.getElementById("navbar").innerHTML = data;
 
+      document.getElementById("cek-profile").href = "login.html";
+
       if (user.Status === "Mahasiswa") {
         document.getElementById("cek-profile").href = "profile.html";
         document.getElementById("cek-menu").hidden = false;
@@ -16,15 +18,11 @@ function navbar() {
       } else if (user.Status === "Admin") {
         document.getElementById("cek-profile").href = "profile_dosen.html";
         document.getElementById("cek-menu").hidden = false;
-      } else {
-        document.getElementById("cek-profile").href = "login.html";
       }
     });
 
   if (!user) {
     console.error("User is not logged in.");
-
-    document.getElementById("cek-profile").href = "login.html";
 
     document.getElementById("login").hidden = false;
     document.getElementById("login-dosen").hidden = false;
