@@ -16,6 +16,8 @@ function navbar() {
       } else if (user.Status === "Admin") {
         document.getElementById("cek-profile").href = "profile_dosen.html";
         document.getElementById("cek-menu").hidden = false;
+      } else {
+        document.getElementById("cek-profile").href = "login.html";
       }
     });
 
