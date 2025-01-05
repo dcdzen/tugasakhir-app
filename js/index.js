@@ -24,6 +24,8 @@ function navbar() {
   if (!user) {
     console.error("User is not logged in.");
 
+    document.getElementById("cek-profile").href = "login.html";
+
     document.getElementById("login").hidden = false;
     document.getElementById("login-dosen").hidden = false;
 
