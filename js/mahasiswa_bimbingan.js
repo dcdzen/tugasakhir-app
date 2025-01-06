@@ -86,7 +86,7 @@ async function renderTable(data) {
     <td class="align-content-center" style="white-space: nowrap">${item.Pembimbing_1}</td>
     <td class="align-content-center" style="white-space: nowrap">${item.Pembimbing_2}</td>
     <td class="text-center d-flex justify-content-between gap-2">
-      <button class="btn btn-primary fw-bold" onclick="selectedMahasiswa(${index})">Periksa</button>
+      <button class="btn btn-primary fw-bold" onclick="selectedMahasiswa(${item.NPM})">Periksa</button>
       ${deleteButtonHTML}
     </td>
   `;
@@ -95,11 +95,13 @@ async function renderTable(data) {
   });
 }
 
-function selectedMahasiswa(index) {
-  const selectedData = allData[index];
-  const selectedUrl = `mahasiswa.html?NPM=${encodeURIComponent(selectedData.NPM)}`;
+function selectedMahasiswa(npm) {
+  const selectedData = npm;
+  const selectedUrl = `mahasiswa.html?NPM=${encodeURIComponent(selectedData)}`;
   window.location.href = selectedUrl;
-  // console.log("Redirecting to:", editUrl);
+
+  console.log(selectedData);
+  console.log("Redirecting to:", selectedUrl);
 }
 
 function deletePopup(npm, rowIndex) {
