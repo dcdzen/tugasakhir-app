@@ -61,26 +61,24 @@ async function renderTable(data) {
   const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
   const callDosenData = await responseCallDosen.json();
   const callDosen = callDosenData.filter((item) => item.Fungsional === "Admin");
-  const callAdmin = callDosen.find((item) => item.NIP === user.NIP);
 
   const tableBody = document.getElementById("data-table-body");
   tableBody.innerHTML = ""; // Clear any existing rows
 
-  let isAdmin = false;
-
-  if (hasRendered) {
-    console.warn("renderTable already called");
-
-    if (callAdmin.NIP === user.NIP) {
-      isAdmin = true;
-      console.log("admin");
-    } else {
-      isAdmin = false;
-      console.log("bukan admin");
+  for (let i = 0; i < callDosen.length; i++) {
+    const dosen = callDosen[i];
+    if (hasRendered) {
+      if (dosen.NIP === user.NIP) {
+        isAdmin = true;
+        console.log("admin");
+      } else {
+        isAdmin = false;
+        console.log("bukan admin");
+      }
     }
-  }
 
-  hasRendered = true;
+    hasRendered = true;
+  }
 
   // Generate table rows
   data.forEach((item, index) => {
