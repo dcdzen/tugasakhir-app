@@ -27,7 +27,7 @@ fetch("navbar.html")
   });
 
 async function renderButton() {
-  const responseCallDrive = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Drive");
+  const responseCallDrive = await fetch("https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Drive");
   const callDriveData = await responseCallDrive.json();
   const callDrive = callDriveData.find((item) => item.Drive !== null);
 
@@ -46,7 +46,7 @@ async function renderButton() {
     document.getElementById("info-create").hidden = false;
   }
 
-  const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen");
+  const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen");
   const callDosenData = await responseCallDosen.json();
   const callDosen = callDosenData.filter((item) => item.Fungsional === "Admin");
 
@@ -80,7 +80,7 @@ renderButton();
 // Fetch user data from local storage
 function loadUserProfile() {
   // Fetch and display user data from Dosen tab
-  fetch(`https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen?NIP=${user.NIP}`)
+  fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen?NIP=${user.NIP}`)
     .then((response) => response.json())
     .then((data) => {
       const userDosen = data.find((entry) => entry.NIP === user.NIP);
@@ -128,7 +128,7 @@ document.getElementById("pw-gen").addEventListener("click", () => {
 });
 
 // edit form
-fetch(`https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen?NIP=${user.NIP}`)
+fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen?NIP=${user.NIP}`)
   .then((response) => response.json())
   .then((data) => {
     const userDosen = data.find((entry) => entry.NIP === user.NIP);
@@ -159,7 +159,7 @@ fetch(`https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tab
 
         try {
           // Make a PUT request to update the Google Sheet
-          const response = await fetch(`https://api.sheetbest.com/sheets/f4b8387c-6ddc-4485-b90b-6796d0b8fbf2/tabs/Dosen/NIP/${updatedUser.NIP}`, {
+          const response = await fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen/NIP/${updatedUser.NIP}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
