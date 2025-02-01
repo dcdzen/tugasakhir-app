@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Fetch Mahasiswa Data
-    const mahasiswaResponse = await fetch("https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Sempro");
+    const mahasiswaResponse = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Sempro");
     const mahasiswaData = await mahasiswaResponse.json();
     const editData = mahasiswaData.find((item) => item.NPM === selectedNPMsempro);
 
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("edit-status-sempro").value = editData.Status;
 
       // Fetch Dosen Data
-      const response = await fetch("https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen");
+      const response = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen");
       if (!response.ok) {
         throw new Error("Failed to fetch data from Dosen API.");
       }
@@ -207,7 +207,7 @@ document.getElementById("konfirmasi-sempro").addEventListener("submit", async (e
   const data = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Sempro/NPM/${data.NPM}`, {
+    const response = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Sempro/NPM/${data.NPM}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

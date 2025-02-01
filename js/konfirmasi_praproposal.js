@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Fetch Mahasiswa Data
-    const mahasiswaResponse = await fetch("https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Praproposal");
+    const mahasiswaResponse = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Praproposal");
     const mahasiswaData = await mahasiswaResponse.json();
     const editData = mahasiswaData.find((item) => item.NPM === selectedNPMpra);
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("edit-status").value = editData.Status;
 
       // Fetch Dosen Data
-      const dosenResponse = await fetch("https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen");
+      const dosenResponse = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen");
       const dosenData = await dosenResponse.json();
 
       const validFungsional = ["Lektor", "Lektor Kepala", "Asisten Ahli"];
@@ -140,7 +140,7 @@ document.getElementById("add-data-form").addEventListener("submit", async (e) =>
   }
 
   try {
-    const response = await fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Praproposal/NPM/${data.NPM}`, {
+    const response = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Praproposal/NPM/${data.NPM}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -148,7 +148,7 @@ document.getElementById("add-data-form").addEventListener("submit", async (e) =>
       body: JSON.stringify(data),
     });
 
-    const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen");
+    const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen");
     const callDosenData = await responseCallDosen.json();
     const callDosen = callDosenData.find((item) => item.NIP === user.NIP);
 
@@ -168,7 +168,7 @@ document.getElementById("add-data-form").addEventListener("submit", async (e) =>
       Slot: plusSlot,
     };
 
-    const responseDosen = await fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Dosen/NIP/${user.NIP}`, {
+    const responseDosen = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen/NIP/${user.NIP}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

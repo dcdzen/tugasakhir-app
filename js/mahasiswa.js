@@ -96,7 +96,7 @@ function updateContent(elementId, content, relatedButtonId) {
 // Fetch and display user profile data
 function loadUserProfile() {
   // Fetch and display user data from Mahasiswa tab
-  fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Mahasiswa?NPM=${selectedNPM}`)
+  fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Mahasiswa?NPM=${selectedNPM}`)
     .then((response) => response.json())
     .then((data) => {
       const userProfileData = data.find((entry) => entry.NPM === selectedNPM);
@@ -175,7 +175,7 @@ function loadUserProfile() {
     });
 
   // Fetch and display Praproposal data
-  fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Praproposal?NPM=${selectedNPM}`)
+  fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Praproposal?NPM=${selectedNPM}`)
     .then((response) => response.json())
     .then((data) => {
       const userSkripsiData = data.find((entry) => entry.NPM === selectedNPM);
@@ -201,7 +201,7 @@ function loadUserProfile() {
     });
 
   // Fetch and display Sempro data
-  fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Sempro?NPM=${selectedNPM}`)
+  fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Sempro?NPM=${selectedNPM}`)
     .then((response) => response.json())
     .then((data) => {
       const userDataSempro = data.find((entry) => entry.NPM === selectedNPM);
@@ -236,7 +236,7 @@ function loadUserProfile() {
     });
 
   // Fetch and display Semhas data
-  fetch(`https://api.sheetbest.com/sheets/a4e0b8ce-db68-4e5f-b0ff-d22f47fe3a0f/tabs/Semhas?NPM=${selectedNPM}`)
+  fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Semhas?NPM=${selectedNPM}`)
     .then((response) => response.json())
     .then((data) => {
       const userDataSemhas = data.find((entry) => entry.NPM === selectedNPM);
