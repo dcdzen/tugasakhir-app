@@ -29,7 +29,7 @@ async function fetchData() {
     });
 
   try {
-    const responseSempro = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Sempro?NPM=${user.NPM}`);
+    const responseSempro = await fetch(`https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Sempro?NPM=${user.NPM}`);
     const dataSempro = (await responseSempro.json())
       .filter((item) => item.Status === "Diterima")
       .map((item) => ({
@@ -37,7 +37,7 @@ async function fetchData() {
         Type: "Seminar Proposal",
       }));
 
-    const responseSemhas = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Semhas?NPM=${user.NPM}`);
+    const responseSemhas = await fetch(`https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Semhas?NPM=${user.NPM}`);
     const dataSemhas = (await responseSemhas.json())
       .filter((item) => item.Status === "Diterima")
       .map((item) => ({
@@ -58,7 +58,7 @@ async function fetchData() {
 let hasRendered = false;
 
 async function renderTable(data) {
-  const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen");
+  const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Dosen");
   const callDosenData = await responseCallDosen.json();
   const callDosen = callDosenData.filter((item) => item.Fungsional === "Admin");
 
@@ -208,7 +208,7 @@ function showAlertPopup(message, isError = false) {
 // Modify deleteData to show the alert based on success or failure
 async function deleteData() {
   try {
-    const response = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Praproposal/NPM/${deleteNPM}`, {
+    const response = await fetch(`https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Praproposal/NPM/${deleteNPM}`, {
       method: "DELETE",
     });
 

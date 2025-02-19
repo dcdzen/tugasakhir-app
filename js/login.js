@@ -10,7 +10,7 @@ document.getElementById("login-form").addEventListener("submit", async function 
   const toastElement = document.getElementById("login-toast");
 
   try {
-    const response = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Mahasiswa");
+    const response = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Mahasiswa");
     const data = await response.json();
 
     const userCheck = data.find((item) => item.NPM === username && item.Password === password);

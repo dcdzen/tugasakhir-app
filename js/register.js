@@ -15,7 +15,7 @@ document.getElementById("add-data-form").addEventListener("submit", async (e) =>
 
   // Check if NPM already exists
   try {
-    const getResponse = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Mahasiswa");
+    const getResponse = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Mahasiswa");
     if (!getResponse.ok) {
       throw new Error("Failed to fetch existing data");
     }
@@ -29,7 +29,7 @@ document.getElementById("add-data-form").addEventListener("submit", async (e) =>
     }
 
     // If NPM doesn't exist, proceed with the data submission
-    const postResponse = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Mahasiswa", {
+    const postResponse = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Mahasiswa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -27,7 +27,7 @@ function navbar() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Fetch Mahasiswa Data
-  const driveResp = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Drive");
+  const driveResp = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Drive");
   const driveData = await driveResp.json();
 
   const fileForm = driveData.find((item) => item.No === "3");

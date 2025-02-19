@@ -11,7 +11,7 @@ if (!user) {
 
 async function fetchData() {
   try {
-    const response = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen");
+    const response = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Dosen");
     const data = await response.json();
     const callDosen = data.filter((item) => item.Fungsional === "Lektor" || item.Fungsional === "Lektor Kepala");
 

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Fetch Mahasiswa Data
-    const mahasiswaResponse = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Semhas");
+    const mahasiswaResponse = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Semhas");
     const mahasiswaData = await mahasiswaResponse.json();
     const editData = mahasiswaData.find((item) => item.NPM === selectedNPMsemhas);
 
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("edit-status-semhas").value = editData.Status;
 
       // Fetch Dosen Data
-      const response = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen");
+      const response = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Dosen");
       if (!response.ok) {
         throw new Error("Failed to fetch data from Dosen API.");
       }
@@ -207,7 +207,7 @@ document.getElementById("konfirmasi-semhas").addEventListener("submit", async (e
   const data = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Semhas/NPM/${data.NPM}`, {
+    const response = await fetch(`https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Semhas/NPM/${data.NPM}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

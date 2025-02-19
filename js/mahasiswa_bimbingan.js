@@ -31,7 +31,7 @@ async function fetchData() {
       }
     });
   try {
-    const response = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Praproposal?NPM=${user.NPM}`);
+    const response = await fetch(`https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Praproposal?NPM=${user.NPM}`);
     const data = await response.json();
     allData = data;
     renderTable(data);
@@ -42,7 +42,7 @@ async function fetchData() {
 // ADMIN +============================================================================
 
 async function renderTable(data) {
-  const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Dosen");
+  const responseCallDosen = await fetch("https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Dosen");
   const callDosenData = await responseCallDosen.json();
   const callDosen = callDosenData.filter((item) => item.Fungsional === "Admin");
   const selectDosen = callDosenData.find((item) => item.NIP === user.NIP);
@@ -144,7 +144,7 @@ function showAlertPopup(message, isError = false) {
 // Modify deleteData to show the alert based on success or failure
 async function deleteData() {
   try {
-    const response = await fetch(`https://api.sheetbest.com/sheets/529fc407-2e94-482a-803d-bcf17f5b3073/tabs/Praproposal/NPM/${deleteNPM}`, {
+    const response = await fetch(`https://api.sheetbest.com/sheets/506f8840-a871-4430-b4c5-ff4c7926af72/tabs/Praproposal/NPM/${deleteNPM}`, {
       method: "DELETE",
     });
 
